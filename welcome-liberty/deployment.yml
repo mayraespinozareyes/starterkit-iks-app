@@ -3,20 +3,18 @@ apiVersion: apps/v1
 metadata:
   name: liberty
   labels:
-    app: liberty
-    version: v1
+    k8s-app: liberty
 spec:
   revisionHistoryLimit: 0
   replicas: 1
   selector:
     matchLabels:
-      app: liberty
-      version: v1
+      k8s-app: liberty
   template:
     metadata:
       labels:
-        app: liberty
-        version: v1
+        k8s-app: liberty
+      name: liberty
     spec:
       containers:
       - name: liberty
