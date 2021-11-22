@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: liberty
+  labels:
+    app: liberty
+    version: v1
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: liberty
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: liberty
+        version: v1
+    spec:
+      containers:
+      - name: liberty
+        image: websphere-liberty
+        resources: {}
+        terminationMessagePolicy: File
+        imagePullPolicy: Always
